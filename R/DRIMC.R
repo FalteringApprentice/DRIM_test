@@ -1,7 +1,7 @@
 #'@aliases DRIM
 
-packages_path<-function(){
-  packages_dir<-system.file(package = "DRIM")
+packages_path <- function(){
+  packages_dir <- system.file(package = "DRIM")
   return(packages_dir)
 }
 #'@title env_python_set
@@ -13,7 +13,7 @@ packages_path<-function(){
 #'@param py_path path of the conda environment
 #'@import reticulate
 #'@export
-env_python_set<-function(py_path){
+env_python_set <- function(py_path){
   # library(reticulate)
   use_condaenv(py_path)
   #use_python(py_path)
@@ -25,10 +25,10 @@ env_python_set<-function(py_path){
 #'@return bool TRUE or FALSE
 #'@import reticulate
 #'@export
-env_test<-function(){
+env_test <- function(){
   library(reticulate)
-  package_flag<-TRUE
-  package_detect<-c('anndata',
+  package_flag <- TRUE
+  package_detect <- c('anndata',
                     'collections',
                     'copy',
                     'datetime',
@@ -52,7 +52,7 @@ env_test<-function(){
   }
   for(package_name in package_detect){
     if(!py_module_available(package_name)){
-      error_message<-paste(package_name,"is not ready",sep=" ")
+      error_message <- paste(package_name,"is not ready",sep=" ")
       print(error_message)
     }
   }
@@ -69,7 +69,7 @@ env_test<-function(){
 #'@param plot_data convolution data
 #'@import data.table
 #'@export
-data_deal<-function(sc_exp_data,st_exp_data,sc_celltype_data,loc_data,plot_data){
+data_deal <- function(sc_exp_data,st_exp_data,sc_celltype_data,loc_data,plot_data){
   library(data.table)
   data_path <- paste(packages_path(),'/data',sep = "")
   if(!dir.exists(data_path)){
@@ -89,12 +89,12 @@ data_deal<-function(sc_exp_data,st_exp_data,sc_celltype_data,loc_data,plot_data)
 #'Cell Columns is the specified column name
 #'@param resolution program magnification
 #'@param colname selected column name
-Parameter_settings<-function(resolution=4,thread=7,colname){
+Parameter_settings <- function(resolution=4,thread=7,colname){
   if(thread==7){
-    parameter_settings_csv<-c(resolution,colname)
+    parameter_settings_csv <- c(resolution,colname)
   }
   else {
-     parameter_settings_csv<-c(resolution,colname,thread)
+     parameter_settings_csv <-c (resolution,colname,thread)
   }
   dir=packages_path()
   parameter_settings_path = paste(dir,"/data/parameter_settings.csv",sep="")
@@ -103,17 +103,17 @@ Parameter_settings<-function(resolution=4,thread=7,colname){
 
 #'@import reticulate
 #'@export
-call_python_program<-function(pyname){
+call_python_program <- function(pyname){
   #package_path<-c('E:/work/sunhang/code/package_0708')
   package_path_dir <- packages_path()
-  os<-import('os')
+  os <- import('os')
   os$chdir(package_path_dir)
   print(pyname)
-  py_dir=paste(package_path_dir,'/code/',pyname,'.py',sep="")
+  py_dir = paste(package_path_dir,'/code/',pyname,'.py',sep="")
   source_python(py_dir)
 }
 
-Planarian_run<-function(){
+Planarian_run <- function(){
   call_python_program('sc_st_gene_charge')
   call_python_program('spot_pre')
   call_python_program('GS_mapping_HVG_gene')
@@ -154,10 +154,10 @@ Planarian_run<-function(){
 #'@param colname selected column name
 #' @import data.table
 #'@export
-planarian_main<-function(resolution=4,thread=7,colname){
+drim <- function(resolution=4,thread=7,colname){
   library(data.table)
-  data_path<-packages_path()
-  data_dir<-paste(data_path,'/data',sep="")
+  data_path <- packages_path()
+  data_dir <- paste(data_path,'/data',sep="")
   if(!dir.exists(data_dir)){
     dir.create(data_dir)
   }
