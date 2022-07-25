@@ -78,7 +78,7 @@ data_deal <- function(sc_exp_data,st_exp_data,sc_celltype_data,loc_data,plot_dat
   fwrite(plot_data,file = paste(data_path,"/deconvolution.csv",sep = ""))
   fwrite(sc_exp_data,file = paste(data_path,"/sc_exp.csv",sep = ""))
   fwrite(st_exp_data,file = paste(data_path,"/st_exp.csv",sep = ""))
-  fwrite(loc_data,file = paste(data_path,'/sp_loc.csv',sep = ""))
+  fwrite(loc_data,file = paste(data_path,'/st_loc.csv',sep = ""))
   fwrite(sc_celltype_data,file = paste(data_path,'/sc_celltype.csv',sep = ""))
 }
 
