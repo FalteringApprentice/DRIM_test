@@ -45,7 +45,7 @@ env_test <- function(){
                     'sklearn',
                     'time',
                     'rich',
-                    'util_code')
+                    'python-utils')
   for(package_name in package_detect){
     if(!py_module_available(package_name)){
       py_install(package_name, pip = T)
