@@ -2,7 +2,7 @@ import numpy as np
 import pandas as pd
 from pathlib import Path
 import sys
-import util_code
+#import util_code
 import os
 dir_root = os.getcwd()
 parameter_settings_f=pd.read_csv(dir_root+'/data/parameter_settings.csv')
@@ -45,4 +45,4 @@ max_celltype = []
 for i in np.argmax(spot_round_csv.values,axis=1):
     max_celltype.append(spot_ratio_csv.columns[i])
 position_celltype_num_merge["celltype"] = max_celltype
-util_code.drawPicture(position_celltype_num_merge,row_name= "row",col_name="col",colorattribute="celltype",save_file=before_pic_file,is_save=True,is_show= False,save_type="pdf",point_size=8)
+#util_code.drawPicture(position_celltype_num_merge,row_name= "row",col_name="col",colorattribute="celltype",save_file=before_pic_file,is_save=True,is_show= False,save_type="pdf",point_size=8)
