@@ -4,7 +4,7 @@ import pandas as pd
 import scanpy as sc
 import anndata as ad
 import sys
-import util_code
+#import util_code
 from sklearn.utils import shuffle
 from numba import jit
 from rich.progress import track
@@ -213,6 +213,6 @@ for step in track(sequence = range(20),transient = True):
     if(pro >= 0.95):
         break
     
-util_code.drawPicture(mapping_csv,row_name= "row",col_name="col",colorattribute="celltype",save_file=mapping_celltype_pic,is_save=True,is_show= False,save_type="pdf")
+#util_code.drawPicture(mapping_csv,row_name= "row",col_name="col",colorattribute="celltype",save_file=mapping_celltype_pic,is_save=True,is_show= False,save_type="pdf")
 mapping_csv.to_csv(result_mapping_file)
 
