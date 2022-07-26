@@ -10,13 +10,13 @@ resolution = int(parameter_settings_f['parameter'][0])
 # resolution = sys.argv[1]
 # resolution = int(resolution)
 
-region_growing_file ="../data/" + str(resolution) +"/intermediate_result/region_growing_result.csv"
+region_growing_file =dir_root+"/data/" + str(resolution) +"/intermediate_result/region_growing_result.csv"
 
-position_file = "../data/st_loc.csv"
+position_file = dir_root+"/data/st_loc.csv"
 
-mapping_result_file = "../data/" + str(resolution) +"/intermediate_result/first_mapping_result.csv"
+mapping_result_file = dir_root+"/data/" + str(resolution) +"/intermediate_result/first_mapping_result.csv"
 
-result_file = "../data/" + str(resolution) +"/intermediate_result/comb_position_mapping.csv"
+result_file = dir_root+"/data/" + str(resolution) +"/intermediate_result/comb_position_mapping.csv"
 
 result_csv = pd.read_csv(region_growing_file)
 position_csv = pd.read_csv(position_file,index_col=0)
