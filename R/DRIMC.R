@@ -310,10 +310,10 @@ map_toseurat <- function(sc_dat, map_dat, project = 'project'){
   return(obj)
 }
 
-
+#' @title get_seurat_result
 #' @import data.table
-#' @export 
-get_seurate_result <- function(sc_rds){
+#' @export
+get_seurat_result <- function(sc_rds,resolution){
   library(data.table)
   data_path <- packages_path()
   iterative_mapping_result_celltype_it_dir=paste(data_path,'/data/',resolution,'/mapping_result.csv',sep='')
